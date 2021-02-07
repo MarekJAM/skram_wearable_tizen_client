@@ -9,12 +9,17 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div id="overlay" onclick="off()"><div class="loader"></div></div>
 	<div class="ui-page ui-page-active" id="main">
 		<header class="ui-header">
-			<h2 class="ui-title">Skram</h2>
+			<img src="skram_logo.png" alt="Skram" class="center">
 		</header>
 		<div class="ui-content ui-content-padding">
-			<p>Hello! </p>
+			<label for="uname"><b>Server address</b></label>
+    		<input type="text" placeholder="Server address" value="192.168.0.25:8080" name="saddr" required>
+    		<label for="psw"><b>Username</b></label>
+  		  	<input type="text" placeholder="Username" name="uname" required>
+  			<button type="submit" class="button" onclick="call()">Login</button>
 		</div>
 	</div>
 	<script src="lib/tau/wearable/js/tau.min.js"></script>

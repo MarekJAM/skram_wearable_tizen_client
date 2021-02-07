@@ -1,3 +1,49 @@
-/* this file is left blank on purpose, if developer can't find classes he needs in framework, he can customize his
-app adding his own styles here
- */
+:root {
+  --background-color: #292B3D;
+  --accent-color: #E07A5F;
+}
+
+.ui-page {
+	background-color: var(--background-color);
+}
+.button {
+	background-color: var(--accent-color);
+	border: none;
+	color: white;
+	padding: 5px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+.loader {
+  position: absolute;
+  right: 35%;
+  top: 35%;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid var(--accent-color); /* Blue */
+  border-radius: 50%;
+  width: 30%;
+  height: 30%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
