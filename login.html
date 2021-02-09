@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width,user-scalable=no">
-	<title>Basic</title>
-	<link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
-	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.min.css">
-	<!-- load theme file for your application -->
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div id="overlay" onclick="off()"><div class="loader"></div></div>
-	<div class="ui-page ui-page-active" id="main">
-		<header class="ui-header">
-			<img src="skram_logo.png" alt="Skram" class="center">
-		</header>
-		<div class="ui-content ui-content-padding">
-			<label for="uname"><b>Server address</b></label>
-    		<input type="text" placeholder="Server address" value="192.168.0.25:8080" name="saddr" required>
-    		<label for="psw"><b>Username</b></label>
-  		  	<input type="text" placeholder="Username" name="uname" required>
-  			<button type="submit" class="button" onclick="call()">Login</button>
-		</div>
-	</div>
-	<script src="lib/tau/wearable/js/tau.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/lowBatteryCheck.js"></script>
-	<script src="js/circle-helper.js"></script>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>Login</title>
+    <link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css" />
+    <link
+      rel="stylesheet"
+      media="all and (-tizen-geometric-shape: circle)"
+      href="lib/tau/wearable/theme/default/tau.circle.min.css"
+    />
+    <!-- load theme file for your application -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="overlay" onclick="off()"><div class="loader"></div></div>
+    <div class="ui-page ui-page-active" id="login-content">
+      <header class="ui-header">
+        <img src="skram_logo.png" alt="Skram" class="center" />
+      </header>
+      <div class="ui-content ui-content-padding">
+        <label for="uname"><b>Server address</b></label>
+        <input
+          type="text"
+          placeholder="Server address"
+          value="192.168.0.25:8080"
+          id="address"
+          name="saddr"
+          required
+        />
+        <label for="psw"><b>Username</b></label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Username"
+          name="uname"
+          required
+        />
+        <button
+          type="submit"
+          class="button"
+          onclick="login(document.getElementById('username').value, document.getElementById('address').value);"
+        >
+          Login
+        </button>
+      </div>
+
+      <div style="display: none" id="lobby-content">
+        <div>
+          <ul>
+            <li>cascas</li>
+            <li>cqwcq</li>
+            <li>ascsv</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="lib/tau/wearable/js/tau.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/lowBatteryCheck.js"></script>
+    <script src="js/circle-helper.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/lobby.js"></script>
+    <script src="js/websocket.js"></script>
+  </body>
 </html>
