@@ -13,21 +13,20 @@ function establishConnection(address) {
   webSocket.onerror = function (e) {
     hideLoader();
     console.log("connection error" + e.message);
-    document.getElementById("lobby-content").style.display = 'none';
-    document.getElementById("login-content").style.display = 'block';
+    changePage("login-content");
   };
 
   webSocket.onclose = function (e) {
     hideLoader();
-    document.getElementById("lobby-content").style.display = 'none';
-    document.getElementById("login-content").style.display = 'block';
+    changePage("login-content");
   }
 
   webSocket.onmessage = function (msg) {
     hideLoader();
     var resp = JSON.parse(msg.data);
     if (resp.lobby_status !== null) {
-      document.getElementById("lobby-content").style.display = 'block';
+      changePage("lobby-content");
+      populateLobbyList(resp.lobby_status.rooms);
     }
     // alert(resp.lobby_status.rooms[0]);
   }

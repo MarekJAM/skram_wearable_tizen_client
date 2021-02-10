@@ -1,3 +1,5 @@
+var pages = ["login-content", "lobby-content"];
+
 (function () {
   window.addEventListener("tizenhwkey", function (ev) {
     var activePopup = null,
@@ -28,4 +30,13 @@ function hideLoader() {
   document.getElementById("overlay").style.display = "none";
 }
 
-
+function changePage(content) {
+  pages.forEach((page) =>
+    document.querySelectorAll('.'+page).forEach(function (el) {
+      el.style.display = "none";
+    })
+  );
+  document.querySelectorAll('.'+content).forEach(function (el) {
+    el.style.display = "block";
+  })
+}

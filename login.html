@@ -14,44 +14,47 @@
   </head>
   <body>
     <div id="overlay" onclick="off()"><div class="loader"></div></div>
-    <div class="ui-page ui-page-active" id="login-content">
-      <header class="ui-header">
-        <img src="skram_logo.png" alt="Skram" class="center" />
-      </header>
-      <div class="ui-content ui-content-padding">
-        <label for="uname"><b>Server address</b></label>
-        <input
-          type="text"
-          placeholder="Server address"
-          value="192.168.0.25:8080"
-          id="address"
-          name="saddr"
-          required
-        />
-        <label for="psw"><b>Username</b></label>
-        <input
-          type="text"
-          id="username"
-          placeholder="Username"
-          name="uname"
-          required
-        />
-        <button
-          type="submit"
-          class="button"
-          onclick="login(document.getElementById('username').value, document.getElementById('address').value);"
-        >
-          Login
-        </button>
-      </div>
+    <div class="ui-page ui-page-active">
 
-      <div style="display: none" id="lobby-content">
-        <div>
-          <ul>
-            <li>cascas</li>
-            <li>cqwcq</li>
-            <li>ascsv</li>
-          </ul>
+      <header class="ui-header">
+        <img src="skram_logo.png" alt="Skram" class="center login-content" />
+        <p style="text-align: center; display: none;" class="lobby-content">Rooms:</p>
+      </header>
+
+      <div class="ui-content ui-content-padding">
+        <div class="login-content">
+          <label for="uname"><b>Server address</b></label>
+          <input
+            type="text"
+            placeholder="Server address"
+            value="192.168.0.25:8080"
+            id="address"
+            name="saddr"
+            required
+          />
+          <label for="psw"><b>Username</b></label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            name="uname"
+            required
+          />
+          <button
+            type="submit"
+            class="button"
+            onclick="login(document.getElementById('username').value, document.getElementById('address').value);"
+          >
+            Login
+          </button>
+        </div>
+
+        <div style="display: none" class="lobby-content">
+          <div>
+            <ul id="room-list">
+              <li>cascas</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
