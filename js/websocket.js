@@ -1,5 +1,3 @@
-var webSocketUrl = "wss://html5labs-interop.cloudapp.net:443/echo";
-
 var webSocket;
 
 function establishConnection(address) {
@@ -23,12 +21,17 @@ function establishConnection(address) {
 
   webSocket.onmessage = function (msg) {
     hideLoader();
+
     var resp = JSON.parse(msg.data);
-    if (resp.lobby_status !== null) {
+
+    if (resp.lobby_status != null) {
       changePage("lobby-content");
       populateLobbyList(resp.lobby_status.rooms);
+    } else if (resp.room_status != null) {
+      changePage("room-content");
+      populateUsersList(resp.room_status);
+      document.addEventListener('rotarydetent', rotaryEventHandler, false);
     }
-    // alert(resp.lobby_status.rooms[0]);
   }
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/SkramWearableTizenClient" version="1.0.0" viewmodes="maximized">
     <tizen:application id="Ey1PgJvxLW.SkramWearableTizenClient" package="Ey1PgJvxLW" required_version="2.3.2"/>
-    <content src="login.html"/>
+    <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal"/>
     <icon src="skram_app_icon.png"/>
     <name>Skram</name>
