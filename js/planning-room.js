@@ -1,6 +1,41 @@
-function populateUsersList(status) {
-  if (status.task.id != null && status.task.id !== "") {
+var taskId;
+var availableEstimates = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  20,
+];
+var estimateIndex = 0;
+
+function processRoomStatus(status) {
+  if (
+    status.task.id != null &&
+    status.task.id !== "" &&
+    status.task.id !== taskId
+  ) {
+    taskId = status.task.id;
     document.getElementById("task-info").innerHTML = status.task.id;
+    var estimateBtn = document.getElementById("estimate");
+    estimateBtn.style.display = "table-cell";
+    estimateBtn.innerHTML = availableEstimates[estimateIndex];
+    estimateBtn.onclick = () => {
+      sendMessage(
+        JSON.stringify({ estimate: availableEstimates[estimateIndex] })
+      );
+      estimateBtn.style.display = "none";
+    };
   }
 
   var userlist = document.getElementById("users-list");
@@ -39,14 +74,16 @@ function populateUsersList(status) {
 }
 
 function rotaryEventHandler(e) {
-  var value = parseInt(document.getElementById("estimate").innerHTML);
-
   if (e.detail.direction === "CW") {
-    ++value;
+    if (estimateIndex < availableEstimates.length - 1) {
+      estimateIndex += 1;
+    }
   } else if (e.detail.direction === "CCW") {
-    --value;
+    if (estimateIndex > 0) {
+      estimateIndex -= 1;
+    }
   }
-  
-  document.getElementById("estimate").innerHTML = value;
+
+  document.getElementById("estimate").innerHTML =
+    availableEstimates[estimateIndex];
 }
-l;

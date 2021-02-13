@@ -1,16 +1,16 @@
 :root {
-  --background-color: #292B3D;
-  --accent-color: #E07A5F;
+  --background-color: #292b3d;
+  --accent-color: #e07a5f;
 }
 
 .ui-page {
-	background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 .button {
-	background-color: var(--accent-color);
-	border: none;
-	color: white;
-	padding: 5px;
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 5px;
 }
 .center {
   display: block;
@@ -27,7 +27,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
 }
@@ -44,9 +44,36 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-#lobby-content { text-align: center; }
-ul { display: inline-block; text-align: left; }
+#lobby-content {
+  text-align: center;
+}
+ul {
+  display: inline-block;
+  text-align: left;
+}
+
+#estimate {
+  display: none;
+  position: absolute;
+  width: 80px;
+  left: 10px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #e07a5f;
+  font-size: 50px;
+  line-height: 80px;
+  color: #fff;
+  vertical-align: middle;
+  top: 50%;
+  text-align: center;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

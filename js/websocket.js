@@ -29,7 +29,7 @@ function establishConnection(address) {
       populateLobbyList(resp.lobby_status.rooms);
     } else if (resp.room_status != null) {
       changePage("room-content");
-      populateUsersList(resp.room_status);
+      processRoomStatus(resp.room_status);
       document.addEventListener('rotarydetent', rotaryEventHandler, false);
     }
   }
